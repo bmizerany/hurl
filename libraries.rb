@@ -13,6 +13,7 @@ rescue LoadError
 end
 
 rubygem 'sinatra/base'
+rubygem 'sinatra/redis'
 rubygem 'yajl' => 'yajl-ruby'
 rubygem 'curb'
 rubygem 'mustache/sinatra'

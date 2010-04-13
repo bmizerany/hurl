@@ -2,8 +2,7 @@ require 'libraries'
 
 module Hurl
   def self.redis
-    return @redis if @redis
-    @redis = Redis.new(:host => '127.0.0.1', :port => 6379, :thread_safe => true)
+    App.redis
   end
 
   def self.redis=(redis)
@@ -20,6 +19,7 @@ module Hurl
 
   class App < Sinatra::Base
     register Mustache::Sinatra
+    register Sinatra::Redis
     helpers Hurl::Helpers
 
     dir = File.dirname(File.expand_path(__FILE__))
@@ -33,6 +33,7 @@ module Hurl
     }
 
     enable :sessions
+    enable :logging
 
     def initialize(*args)
       super
