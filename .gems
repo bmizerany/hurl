@@ -1,0 +1,5 @@
+yajl-ruby
+sinatra-redis
+mustache
+sinatra -v 1.0
+curb
